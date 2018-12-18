@@ -5,6 +5,7 @@ import java.net.Proxy;
 import java.net.Proxy.Type;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -20,6 +21,11 @@ import com.msci.mis.login.captcha.ICaptchaService;
 @Order(2)
 @Configuration 
 public class AppConfig {
+	@Value("${google.recaptcha.key.site}")
+	private String googleRecaptchaSiteKey;
+
+	@Value("${google.recaptcha.key.secret}")
+	private String googleRecaptchaSsecretKey;
 	@Autowired
 	private SessionConfig sessionConfig;
 	
@@ -47,8 +53,8 @@ public class AppConfig {
 	@Bean 
 	public CaptchaSettings captchaSettings(){
 		CaptchaSettings captchaSettings = new CaptchaSettings();
-		captchaSettings.setSecret("6LdeVw4UAAAAAMBhgtdWv7_00bv8V1U1lPdhBYee");
-		captchaSettings.setSite("6LdeVw4UAAAAAEuhipOHVfsuDI3qaFiwfSjNHrAP");
+		captchaSettings.setSecret(googleRecaptchaSsecretKey);
+		captchaSettings.setSite(googleRecaptchaSiteKey);
 		return captchaSettings;
 	}
 }
