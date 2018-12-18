@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="header"
+	th:replace="fragments/commonHeader :: commonHeader(~{::title}, ~{}, ~{}, ~{})">
+<title></title>
+</head>
+<body>
+	<div id="content" th:fragment="content">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<h4>
+					<span th:text="${test}"></span>
+				</h4>
+				<h5>
+					Go <a href="/" th:href="@{/home}">back</a> . <a href="/cities"
+						th:href="@{/home/city}">List all cities </a>
+				</h5>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

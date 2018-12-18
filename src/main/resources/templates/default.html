@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!--/* Use the sub-view's 'head' block if it includes one.  If not, render the 'commonHeader' block with this title */-->
+
+<head th:replace="~{${view} :: header} ?: ~{fragments/commonHeader :: commonHeader(~{::title}, ~{}, ~{}, ~{})}">
+  <title>MSCI Inc. Login</title>
+</head>
+
+
+<body>
+	
+	<div id="vertical-center">
+	
+	<div class="alerts">
+		<div class="alert alert-danger alert-dismissible" role="alert"
+			th:if="${error}">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			<span id="errorMsg" th:text="${error}">error</span>
+		</div>
+		<div class="alert alert-info alert-dismissible" role="alert"
+			th:if="${info}">
+			<button type="button" class="close" data-dismiss="alert"
+				aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			<span id="infoMsg" th:text="${info}">Info</span>
+		</div>		
+		<div class="alert alert-success alert-dismissible" role="alert"
+			th:if="${success}">
+			<button type="button" class="close" data-dismiss="alert"
+				aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			<span id="successMsg" th:text="${success}">Success</span>
+		</div>
+		<div class="alert alert-success alert-dismissible" role="alert"
+			th:if="${param.logout}">
+			<button type="button" class="close" data-dismiss="alert"
+				aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+		You have been successfully logged out
+		</div>
+	</div>
+
+
+
+		<div class="container-fluid center-block">
+	
+			<div class="row top-buffer" th:include="fragments/logo :: logo"></div>
+			<div class="row top-buffer" th:if="${isProtected}" th:include="fragments/logoutLink :: logoutLink"></div>
+			<div class="row top-buffer">
+				<div class="col-lg-4 col-md-6 col-sm-8 col-xs-12 center-block no-float">
+					<div th:replace="~{${view} :: links} ?: ~{fragments/externalLinks :: links(~{})}"></div>
+					<div th:replace="${view} :: content">Content</div>
+					<div th:include="fragments/footer"></div>
+				</div>
+			</div>
+	
+		</div>
+		
+	</div>
+</body>
+</html>

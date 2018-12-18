@@ -2,9 +2,11 @@ spring:
   application:
     name: myApp
   cloud:
+    bus:
+      enabled: true
     consul:
       enabled: true
-      host: localhost
+      host: consul-dev.msciapps.com
       port: 8500
       discovery:
         enabled: true

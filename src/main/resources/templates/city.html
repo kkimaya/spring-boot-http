@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="header"
+	th:replace="fragments/commonHeader :: commonHeader(~{::title}, ~{}, ~{}, ~{::script})">
+	<script src='https://www.google.com/recaptcha/api.js' defer></script>
+<title></title>
+</head>
+<body>
+	<div id="content" th:fragment="content">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<div class="cityList" th:if="${cityList} != null">
+					<h3>Cities:</h3>
+					<table class="table">
+						<tr>
+							<th>City</th>
+
+						</tr>
+						<tr th:each="i:${cityList}">
+							<td><span th:text="${i}"></span></td>
+						</tr>
+					</table>
+				</div>
+				<form action="#" th:action="@{/home/city}" th:object="${cityForm}"
+					method="post" id="cityForm">
+					<div class="form-group"
+						th:classappend="${#fields.hasErrors('city')} ? 'has-error has-feedback' : '' ">
+						<label class="control-label" for="city">Add City</label> <input
+							class="form-control" id="city"
+							th:field="*{city}" placeholder="" autofocus="autofocus" /> <span
+							th:if="${#fields.hasErrors('city')}"
+							class="glyphicon glyphicon-remove form-control-feedback"
+							aria-hidden="true"></span> <span
+							th:if="${#fields.hasErrors('city')}" class="sr-only">(error)</span>
+						<span class="help-block" th:if="${#fields.hasErrors('city')}"
+							th:errors="*{city}">City Error</span>
+					</div>
+					<div th:replace="fragments/captcha :: captcha">captcha</div>
+					<div class="form-group">
+						<div class="row">
+							<div class="col-xs-5 gutter-right-5">
+								<a id="cancel" class="btn btn-default btn-block "
+									th:href="@{/home}" role="button">Cancel</a>
+							</div>
+
+							<div class="col-xs-7 gutter-left-5">
+								<button type="submit" id="submit"
+									class="btn btn-primary btn-block ">Submit</button>
+							</div>
+						</div>
+					</div>
+
+				</form>
+				<h5>
+					Go <a href="/" th:href="@{/home}">back</a> . <a href="/cities"
+						th:href="@{/home/city}">List all cities </a>
+				</h5>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

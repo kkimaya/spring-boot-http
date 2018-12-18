@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div id="captcha" th:fragment="captcha" class="form-group">
+	<div class="row captchaRow">
+		<div class="g-recaptcha"
+			th:attr="data-sitekey=${@captchaSettings.getSite()}"></div>
+		<span id="captchaError" th:if="${reCaptchaError}"
+			th:text="${reCaptchaError}" class=" alert-danger"></span>
+	</div>
+</div>

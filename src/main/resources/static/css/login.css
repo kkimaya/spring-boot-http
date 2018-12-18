@@ -1,0 +1,131 @@
+.invalid {
+    background:url(../images/invalid.png) no-repeat 0 50%;
+    padding-left:22px;
+    line-height:24px;
+    color:#ec3f41;
+}
+.valid {
+    background:url(../images/valid.png) no-repeat 0 50%;
+    padding-left:22px;
+    line-height:24px;
+    color:#3a7d34;
+}
+#pswd_info {
+    display:none;
+}
+.container {
+  height: 100%;
+}
+
+.no-float{
+	float: none;
+}
+
+.alerts {
+    position: fixed;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+}
+
+#vertical-center {
+	padding-top: 35px;
+}
+
+.top-buffer { margin-top:20px; }
+
+.logo { margin-top: 15px; }
+
+img.logo { width: 185px; }
+
+.app-name { 
+	font-size: 2.0em;
+	font-weight: 500; 
+}
+
+.white-text {
+	color: #FFF;
+}
+
+/*
+/////////////////////////////////
+//
+// Override Bootstrap default styles
+//
+/////////////////////////////////
+*/
+
+label {
+	font-weight: normal;
+	color: #968F8B;
+}
+
+.btn-primary {
+ /*font-weight: bold;*/
+	color: #FFF;
+}
+
+/* Remove glow from active form fields */
+.form-control:focus {
+    -webkit-box-shadow: 0 5px 15px rgba(0,0,0,0);
+    -moz-box-shadow: 0 5px 15px rgba(0,0,0,0);
+    -o-box-shadow: 0 5px 15px rgba(0,0,0,0);
+    box-shadow: 0 5px 15px rgba(0,0,0,0);
+}
+
+.btn-primary:hover, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary,
+.btn-primary:active:hover, .btn-primary.active:hover, .open>.dropdown-toggle.btn-primary:hover, .btn-primary:active:focus, .btn-primary.active:focus, .open>.dropdown-toggle.btn-primary:focus, .btn-primary:active.focus, .btn-primary.active.focus, .open>.dropdown-toggle.btn-primary.focus{
+	background-color:#40C1BB;
+	border-color:#40C1BB;
+}
+.btn-default:hover,.btn-default:active:hover, .btn-default.active:hover, .open>.dropdown-toggle.btn-default:hover, .btn-default:active:focus, .btn-default.active:focus, .open>.dropdown-toggle.btn-default:focus, .btn-default:active.focus, .btn-default.active.focus, .open>.dropdown-toggle.btn-default.focus{
+	background-color:#37617A;
+	border-color:#37617A
+}
+
+/*wrapper div for single-div*/
+#usernameAndPassword{
+	white-space: nowrap;
+	max-width: 99%;
+}
+/*So that "remember username" and "forgot password" reside in equal width divs side-by-side*/
+.single-div{
+ 	width:50%;
+    display: inline-block;
+}
+/* Mobile : So that "remember username" and "forgot password" reside in equal width divs below one another*/
+@media screen and (max-width: 440px) {
+    .single-div {
+        display: flex;
+        width: 100%;
+    }
+}
+
+/*to reduce space between buttons which is introduced by adding them into col-xs*/
+.gutter-right-5{
+	padding-right: 5px;
+}
+.gutter-left-5{
+	padding-left: 5px;
+}
+.footer-top-margin{
+	margin-top: -12px;
+}
+.supportSiteLink{
+	font-size: large;
+	color:#40C1BB;
+}
+.captchaRow{
+	padding-bottom: 10px;
+	padding-left: 15px;
+}
+.disclaimer{
+	padding-bottom: 10px;
+	font-size: x-small;
+}
+.logoutDiv{
+	float:right;
+	margin-top:-75px;
+	font-size: 18px;
+}
